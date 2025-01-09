@@ -14,7 +14,7 @@ const SearchPage = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:4600/search?query=${query}`);
+        const response = await axios.get(`https://traveco.onrender.com/search?query=${query}`);
        
        
         console.log("API Response:", response);
