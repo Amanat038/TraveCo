@@ -2,33 +2,33 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-800 text-white '>
-      <div className='container mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left'>
-        <div >
-          <h2 className='text-2xl font-bold mb-2'>Travel Agency</h2>
-          <p className='text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit soluta possimus recusandae autem ab nulla ex corporis deserunt dolores, enim iure eum, placeat officiis </p>
+    <footer className='text-white bg-gray-800 '>
+      <div className='container grid grid-cols-1 gap-8 px-6 py-8 mx-auto text-center md:grid-cols-3 md:text-left'>
+        <div className=''>
+          <h2 className='mb-2 text-2xl font-bold'>Travel Agency</h2>
+          <p className='text-gray-400'>Welcome to TraveCo, your ultimate travel companion! Our mission is to provide you with unforgettable travel experiences, tailored to your preferences and interests. Whether you're looking for exotic adventures, luxurious getaways, or budget-friendly explorations, we have something for everyone.</p>
         </div>
 
-        <div>
-          <h3 className='text-xl font-semibold mb-4'>Ouick Links</h3>
+        <div className='text-center'>
+          <h3 className='mb-4 text-xl font-semibold'>Ouick Links</h3>
           <ul className='space-y-2'>
             <li>
-              <a href="#" className='hover:text-blue-400 transition-colors'>
+              <a href="/" className='transition-colors hover:text-blue-400'>
                 Home
               </a>
             </li>
             <li>
-              <a href="#" className='hover:text-blue-400 transition-colors'>
+              <a href="/tour" className='transition-colors hover:text-blue-400'>
                 All Tours
               </a>
             </li>
             <li>
-              <a href="#" className='hover:text-blue-400 transition-colors'>
+              <a href="/about" className='transition-colors hover:text-blue-400'>
                 About Us
               </a>
             </li>
             <li>
-              <a href="#" className='hover:text-blue-400 transition-colors'>
+              <a href="#" className='transition-colors hover:text-blue-400'>
                 Contact
               </a>
             </li>
@@ -36,17 +36,17 @@ const Footer = () => {
         </div>
 
         <div>
-        <h3 className='text-xl font-semibold mb-4'>Contact Us</h3>
-        <p className='text-gray-400'>Email:{""}<a href='TraveCo.com' className='hover:text-blue-400 transition-colors'>TraveCo.com</a></p>
-        <p className='text-gray-400'>Email:{""}<a href='TraveCo.com' className='hover:text-blue-400 transition-colors'>+91 88391-67579</a></p>
+        <h3 className='mb-4 text-xl font-semibold'>Contact Us</h3>
+        <p className='text-gray-400'>Email:{""}<a href='TraveCo.com' className='transition-colors hover:text-blue-400'>TraveCo.com</a></p>
+        <p className='text-gray-400'>Email:{""}<a href='TraveCo.com' className='transition-colors hover:text-blue-400'>+91 88391-67579</a></p>
         <p className="text-gray-400">
-                  Address: 123 Travel St, Adventure City
+                  Address: Adarsh Nagar Gwalior (MP) 
                </p>
         </div>
       </div>
-      <div className="bg-gray-900 py-4">
-            <p className="text-center text-gray-400 text-sm">
-               &copy; 2024 Travel Agency. All Rights Reserved.
+      <div className="py-4 bg-gray-900">
+            <p className="text-sm text-center text-gray-400">
+               &copy; 2025 Travel Agency. All Rights Reserved.
             </p>
          </div>
     </footer>

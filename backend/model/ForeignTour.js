@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 
-const tourPackageSchema = new mongoose.Schema({
+const foreignTourPackageSchema = new mongoose.Schema({
   title:{
     type:String,
     required:true
@@ -19,12 +19,12 @@ const tourPackageSchema = new mongoose.Schema({
     required:true
   },
   image:{
-    type:[String],
+    type:String,
     required:true
   },
   
 },{timestamps:true});
 
-const TourPackage = mongoose.model('TourPackage', tourPackageSchema);
+const ForeignTourPackage = mongoose.model('ForeignTourPackage', foreignTourPackageSchema);
 
-module.exports= TourPackage;
+module.exports= ForeignTourPackage;

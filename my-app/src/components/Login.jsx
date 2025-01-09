@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { logout, loginSuccess,loginError } from "./redux/userReducer";
 
 const LoginSignup = () => {
+   
+   const dispatch = useDispatch();
+   
+   useEffect(() => {
+      dispatch(logout());
+      localStorage.removeItem("userInfo");
+   }, [dispatch]);
+   
    const [isLogin, setIsLogin] = useState(true);
    const [formData, setFormData] = useState({
       name: "",
       email: "",
       password: "",
+      role: "",
    });
 
    const navigate = useNavigate();
@@ -30,10 +42,10 @@ const LoginSignup = () => {
             });
 
             const { token, user } = response.data;
-           
-            
+
             localStorage.setItem("authToken", token);
             localStorage.setItem("userInfo", JSON.stringify(user));
+            
             alert("login successful");
             navigate("/");
          } catch (error) {
@@ -45,7 +57,10 @@ const LoginSignup = () => {
                name: formData.name,
                email: formData.email,
                password: formData.password,
+               role: formData.role,
             });
+            console.log(formData.role);
+
             alert("signup successful ");
             setIsLogin(true);
          } catch (error) {
@@ -127,17 +142,41 @@ const LoginSignup = () => {
                   className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                />
             </div>
+            {!isLogin && (
+               <div className="mb-4">
+                  <label
+                     className="block mb-2 text-sm font-bold text-white"
+                     htmlFor="password"
+                  >
+                     Role
+                  </label>
+                  <select
+                     id="role"
+                     name="role"
+                     value={formData.role}
+                     onChange={handleChange}
+                     required
+                     className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  >
+                     <option value="" disabled>
+                        Select Role
+                     </option>
+                     <option value="admin">Admin</option>
+                     <option value="user">User</option>
+                  </select>
+               </div>
+            )}
 
             <button
                type="submit"
-               className="w-full px-4 py-2 text-white bg-blue-500 rounded focus:outline-none focus:shadow-outline"
+               className="w-full px-4 py-2 text-white bg-teal-500 rounded hover:bg-teal-800 focus:outline-none focus:shadow-outline"
             >
                {isLogin ? "Login" : "Signup"}
             </button>
 
             <div className="mt-4 text-center">
                <p
-                  className="text-blue-500 cursor-pointer"
+                  className="text-blue-500 cursor-pointer "
                   onClick={() => setIsLogin(!isLogin)}
                >
                   {isLogin

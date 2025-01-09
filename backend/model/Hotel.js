@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 
-const tourPackageSchema = new mongoose.Schema({
+const hotels = new mongoose.Schema({
   title:{
     type:String,
     required:true
@@ -10,21 +10,31 @@ const tourPackageSchema = new mongoose.Schema({
     type:String,
     required:true
   },
+  policy:{
+    type:String,
+    required:true
+  },
+  rating:{
+    type:Number,
+    required:true
+  },
   price:{
     type:Number,
     required:true
   },
-  availableFates:{
-    type:[Date],
+ 
+  food:{
+    type:String,
     required:true
   },
   image:{
     type:[String],
-    required:true
+    default: []
   },
+
   
 },{timestamps:true});
 
-const TourPackage = mongoose.model('TourPackage', tourPackageSchema);
+const Hotels = mongoose.model('Hotels', hotels);
 
-module.exports= TourPackage;
+module.exports= Hotels;

@@ -1,6 +1,6 @@
 
 const initialState = {
-  user:{ },
+  user:null,
   
 }
 
@@ -17,4 +17,24 @@ export const userReducer = (state = initialState, action) => {
     default:
       return state;
   }
+};
+
+
+export const loginSuccess = (userData) => {
+  return {
+     type: "LOGIN_SUCCESS",
+     payload: userData,
+  };
+};
+
+export const logout = () => {
+  return {
+     type: "LOGOUT",
+  };
+};
+
+export const loginError = () => {
+  return {
+     type: "LOGIN_ERROR",
+  };
 };

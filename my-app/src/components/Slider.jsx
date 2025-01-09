@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {useState} from "react"
 const Slider = () => {
    const images = [
@@ -21,13 +21,13 @@ const Slider = () => {
    const [currentIndex,setCurrentIndex] =useState(0)
 
 
-  //  useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => 
-  //     prevIndex === images.length -1 ? 0 : prevIndex +1)
-  //   },3000)
-  //   return() => clearInterval(interval)
-  //  },[images.length])
+   useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+      prevIndex === images.length -1 ? 0 : prevIndex +1)
+    },3000)
+    return() => clearInterval(interval)
+   },[images.length])
   
    const nextSlide = () => {
       setCurrentIndex((prevIndex) =>
@@ -40,7 +40,7 @@ const Slider = () => {
          prevIndex === 0 ? images.length - 1 : prevIndex - 1
       );
    };
-   return <div className="relative w-full md:h-60">
+   return <div className="relative w-full h-40 md:h-60">
     <img className="w-full h-full" src={images[currentIndex].src} alt={images[currentIndex].caption} />
     <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
       <h2 className="text-2xl font-bold md:text-4xl">
@@ -49,8 +49,8 @@ const Slider = () => {
       <p className="mt-2 text-lg md:text-xl">Explore The Beauty!</p>
     </div>
 
-    <button className="absolute p-2 text-white transform -translate-y-1/2 bg-white bg-opacity-50  top-1/2 rounded-full hover:bg-gray-600 left-4 " onClick={prevSlide}></button>
-    <button className="absolute p-2 text-white transform -translate-y-1/2 bg-white bg-opacity-50 top-1/2  rounded-full hover:bg-gray-600 right-4" onClick={nextSlide}></button>
+    <button className="absolute p-2 text-white transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full top-1/2 hover:bg-gray-600 left-4 " onClick={prevSlide}></button>
+    <button className="absolute p-2 text-white transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full top-1/2 hover:bg-gray-600 right-4" onClick={nextSlide}></button>
 
    </div>;
 };

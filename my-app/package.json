@@ -11,11 +11,16 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
+    "@stripe/react-stripe-js": "^3.1.1",
+    "@stripe/stripe-js": "^5.4.0",
+    "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "jspdf": "^2.5.2",
+    "my-app": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
