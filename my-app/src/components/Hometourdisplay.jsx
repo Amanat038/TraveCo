@@ -11,7 +11,7 @@ const Hometourdisplay = () => {
    useEffect(() => {
       const fetchPackages = async () => {
          try {
-            const response = await fetch("http://localhost:4600/packages?limit=3"); // Fetch limited packages
+            const response = await fetch("https://traveco.onrender.com/packages?limit=3"); // Fetch limited packages
             if (!response.ok) {
                throw new Error("Failed to fetch packages");
             }
