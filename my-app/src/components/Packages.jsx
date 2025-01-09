@@ -16,7 +16,7 @@ const Package = () => {
    useEffect(() => {
       const fetchPackages = async () => {
          try {
-            const response = await fetch("http://localhost:4600/packages");
+            const response = await fetch("https://traveco.onrender.com/packages");
             if (!response.ok) {
                throw new Error("Failed to fetch packages");
             }
