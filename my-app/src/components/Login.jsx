@@ -36,7 +36,7 @@ const LoginSignup = () => {
 
       if (isLogin) {
          try {
-            const response = await axios.post("http://localhost:4600/login", {
+            const response = await axios.post("https://traveco.onrender.com/login", {
                email: formData.email,
                password: formData.password,
             });
@@ -53,7 +53,7 @@ const LoginSignup = () => {
          }
       } else {
          try {
-            await axios.post("http://localhost:4600/register", {
+            await axios.post("https://traveco.onrender.com/register", {
                name: formData.name,
                email: formData.email,
                password: formData.password,
