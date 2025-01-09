@@ -46,11 +46,11 @@ const Packageinfo = () => {
    useEffect(() => {
       const fetchPackageDetails = async () => {
          try {
-            const response = await fetch(`http://localhost:4600/package/${id}`);
+            const response = await fetch(`https://traveco.onrender.com/package/${id}`);
             const data = await response.json();
             setPackageDetails(data);
 
-            const hotels = await axios.get("http://localhost:4600/hotels");
+            const hotels = await axios.get("https://traveco.onrender.com/hotels");
 
             setHotels(hotels.data);
             console.log(hotels.data);
@@ -82,7 +82,7 @@ const Packageinfo = () => {
       e.preventDefault();
 
       try {
-         const response = await fetch("http://localhost:4600/bookings", {
+         const response = await fetch("https://traveco.onrender.com/bookings", {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
