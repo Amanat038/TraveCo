@@ -39,7 +39,7 @@ const HotelViewPage = () => {
       const fetchPackageDetails = async () => {
          try {
             const response = await fetch(
-               `http://localhost:4600/hotelView/${id}`
+               `https://traveco.onrender.com/hotelView/${id}`
             );
             const data = await response.json();
             setPackageDetails(data);
@@ -61,7 +61,7 @@ const HotelViewPage = () => {
       e.preventDefault();
 
       try {
-         const response = await fetch("http://localhost:4600/hotels", {
+         const response = await fetch("https://traveco.onrender.com/hotels", {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
