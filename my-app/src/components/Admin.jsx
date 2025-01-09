@@ -56,29 +56,29 @@ const Admin = () => {
       const fetchData = async () => {
          try {
             const packagesResponse = await axios.get(
-               "http://localhost:4600/packages"
+               "https://traveco.onrender.com/packages"
             );
             // console.log(packagesResponse.data);
             setTourPackages(packagesResponse.data);
 
             const bookingResponse = await axios.get(
-               "http://localhost:4600/admin/bookings"
+               "https://traveco.onrender.com/admin/bookings"
             );
             setBookings(bookingResponse.data);
 
             const upcomingPackageResponse = await axios.get(
-               "http://localhost:4600/upcomingPackage"
+               "https://traveco.onrender.com/upcomingPackage"
             );
             // console.log(upcomingPackageResponse)
             setUpcomingPackages(upcomingPackageResponse.data);
 
             const foreignPackageResponse = await axios.get(
-               "http://localhost:4600/foreignPackages"
+               "https://traveco.onrender.com/foreignPackages"
             );
             // console.log(upcomingPackageResponse)
             setForeignPackages(foreignPackageResponse.data);
 
-            const hotels = await axios.get("http://localhost:4600/hotels");
+            const hotels = await axios.get("https://traveco.onrender.com/hotels");
             // console.log(upcomingPackageResponse)
             setHotels(hotels.data);
          } catch (error) {
@@ -123,7 +123,7 @@ const Admin = () => {
       // }
 
       try {
-         await axios.post("http://localhost:4600/admin/packages", data, {
+         await axios.post("https://traveco.onrender.com/admin/packages", data, {
             headers: { "Content-Type": "multipart/form-data" },
          });
          alert("Package added successfully");
@@ -137,7 +137,7 @@ const Admin = () => {
 
          setImage([null]);
          // Re-fetch data
-         const response = await axios.get("http://localhost:4600/packages");
+         const response = await axios.get("https://traveco.onrender.com/packages");
          setTourPackages(response.data);
       } catch (error) {
          console.error("Error adding package", error);
@@ -154,7 +154,7 @@ const Admin = () => {
 
       try {
          await axios.post(
-            "http://localhost:4600/admin/UpComingPackages",
+            "https://traveco.onrender.com/admin/UpComingPackages",
             formData
          );
          alert("Upcoming Package added successfully");
@@ -167,7 +167,7 @@ const Admin = () => {
          });
          // Re-fetch data
          const response = await axios.get(
-            "http://localhost:4600/upcomingPackages"
+            "https://traveco.onrender.com/upcomingPackages"
          );
          setUpcomingPackages(response.data);
       } catch (error) {
@@ -185,7 +185,7 @@ const Admin = () => {
 
       try {
          await axios.post(
-            "http://localhost:4600/admin/foreignPackages",
+            "https://traveco.onrender.com/admin/foreignPackages",
             formData
          );
          alert("Upcoming Package added successfully");
@@ -198,7 +198,7 @@ const Admin = () => {
          });
          // Re-fetch data
          const response = await axios.get(
-            "http://localhost:4600/foreignPackages"
+            "https://traveco.onrender.com/foreignPackages"
          );
          setForeignPackages(response.data);
       } catch (error) {
@@ -229,7 +229,7 @@ const Admin = () => {
       data.append("food", formData.food);
 
       try {
-         await axios.post("http://localhost:4600/admin/hotels", data, {
+         await axios.post("https://traveco.onrender.com/admin/hotels", data, {
             headers: { "Content-Type": "multipart/form-data" },
          });
          alert("Hotel added successfully");
@@ -242,7 +242,7 @@ const Admin = () => {
             food: "",
          });
          // Re-fetch data
-         const response = await axios.get("http://localhost:4600/hotels");
+         const response = await axios.get("https://traveco.onrender.com/hotels");
          // console.log(response.data);
          setTourPackages(response.data);
       } catch (error) {
@@ -268,7 +268,7 @@ const Admin = () => {
       data.append("image", image);
 
       try {
-         await axios.put(`http://localhost:4600/admin/hotelsImg/${id}`, data, {
+         await axios.put(`https://traveco.onrender.com/admin/hotelsImg/${id}`, data, {
             headers: { "Content-Type": "multipart/form-data" },
          });
          alert("HotelImg added successfully");
@@ -276,7 +276,7 @@ const Admin = () => {
          setImage([null]);
 
          // Re-fetch data
-         const response = await axios.get("http://localhost:4600/hotels");
+         const response = await axios.get("https://traveco.onrender.com/hotels");
          // console.log(response.data);
          setTourPackages(response.data);
       } catch (error) {
@@ -286,12 +286,12 @@ const Admin = () => {
 
    const handleDeletePackage = async (id) => {
       try {
-         await axios.delete(`http://localhost:4600/admin/packages/${id}`);
+         await axios.delete(`https://traveco.onrender.com/admin/packages/${id}`);
          setTourPackages(tourPackages.filter((pkg) => pkg._id !== id));
          // console.log(tourPackages);
          alert("Package deleted successfully");
          // Re-fetch data
-         const response = await axios.get("http://localhost:4600/packages");
+         const response = await axios.get("https://traveco.onrender.com/packages");
          setTourPackages(response.data);
       } catch (error) {
          alert("Error deleting package", error);
