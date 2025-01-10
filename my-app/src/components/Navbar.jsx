@@ -88,12 +88,12 @@ const Navbar = () => {
 
                   {userInfo ? (
                      <>
-                        <Link
+                        <button
                            onClick={logOut}
                            className="text-lg font-semibold cursor-pointer CUR hover:text-teal-500"
                         >
                            LogOut
-                        </Link>
+                        </button>
                         {userInfo.role === "admin" && (
                            <Link
                               to="/admin"
