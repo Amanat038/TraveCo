@@ -211,7 +211,7 @@ router.post("/create-order", async (req, res) => {
 });
 
 // Admin Post
-router.post("/admin/foreignPackages",verifyAdmin,  async (req, res) => {
+router.post("/admin/foreignPackages",  async (req, res) => {
    const { title, description, price, availableFates, image } = req.body;
 
    if (!title || !description || !price || !availableFates || !image) {
@@ -233,7 +233,7 @@ router.post("/admin/foreignPackages",verifyAdmin,  async (req, res) => {
       res.status(500).json({ message: "error creating tour package", error });
    }
 });
-router.post("/admin/packages",verifyAdmin,  upload.single("image"), async (req, res) => {
+router.post("/admin/packages",  upload.single("image"), async (req, res) => {
    try {
       const { title, description, price, availableFates } = req.body;
 
@@ -261,7 +261,7 @@ router.post("/admin/packages",verifyAdmin,  upload.single("image"), async (req, 
    }
 });
 
-router.post("/admin/hotels",verifyAdmin,  upload.single("image"), async (req, res) => {
+router.post("/admin/hotels",  upload.single("image"), async (req, res) => {
    try {
       const {
          title,
@@ -307,7 +307,7 @@ router.post("/admin/hotels",verifyAdmin,  upload.single("image"), async (req, re
    }
 });
 
-router.post("/admin/UpComingPackages",verifyAdmin,  async (req, res) => {
+router.post("/admin/UpComingPackages",  async (req, res) => {
    const { title, description, price, availableFates, image } = req.body;
 
    if (!title || !description || !price || !availableFates || !image) {
@@ -332,7 +332,7 @@ router.post("/admin/UpComingPackages",verifyAdmin,  async (req, res) => {
 
 // Admin get
 
-router.get("/admin/packages",verifyAdmin,  async (req, res) => {
+router.get("/admin/packages",  async (req, res) => {
    try {
       const packages = await TourPackage.find();
       res.status(200).json(packages);
@@ -341,7 +341,7 @@ router.get("/admin/packages",verifyAdmin,  async (req, res) => {
    }
 });
 
-router.get("/admin/bookings",verifyAdmin,  async (req, res) => {
+router.get("/admin/bookings",  async (req, res) => {
    try {
       const bookings = await Booking.find().populate("packageId");
       res.status(200).json(bookings);
@@ -440,7 +440,7 @@ router.get("/hotelView/:id", async (req, res) => {
 
 // Admin update
 
-router.put("/admin/hotelsImg/:id",verifyAdmin,  upload.single("image"), async (req, res) => {
+router.put("/admin/hotelsImg/:id",  upload.single("image"), async (req, res) => {
    const { id } = req.params;
    console.log(id);
 
@@ -472,7 +472,7 @@ router.put("/admin/hotelsImg/:id",verifyAdmin,  upload.single("image"), async (r
    }
 });
 
-router.put("/admin/packages:id",verifyAdmin,  async (req, res) => {
+router.put("/admin/packages:id",  async (req, res) => {
    const { id } = req.params;
    const { title, description, price, availableFates, image } = req.body;
 
@@ -500,7 +500,7 @@ router.put("/admin/packages:id",verifyAdmin,  async (req, res) => {
 
 // delete
 
-router.delete("/admin/packages/:id",verifyAdmin,  async (req, res) => {
+router.delete("/admin/packages/:id",  async (req, res) => {
    const { id } = req.params;
 
    try {
