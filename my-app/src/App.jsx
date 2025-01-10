@@ -37,7 +37,7 @@ const appRouter = createBrowserRouter([
          {
             path: "/admin",
 
-            element: <ProtectedRoute element={<Admin />} isAdmin={isAdmin()} />,
+            element: <Admin />
          },
          {
             path: "/about",
