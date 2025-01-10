@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
    const [userInfo, setUserInfo] = useState(null);
 
@@ -37,9 +37,9 @@ const Navbar = () => {
          <div className="container px-2 mx-auto md:px-0 lg:px-8 ">
             <div className="flex items-center justify-between h-16">
                <div className="flex-shrink-0">
-                  <a href="/" className="text-4xl font-bold text-teal-500">
+                  <Link to="/" className="text-4xl font-bold text-teal-500">
                      TraveCo.
-                  </a>
+                  </Link>
                </div>
 
                <div className="hidden space-x-8 lg:flex">
@@ -67,36 +67,36 @@ const Navbar = () => {
                         </button>
                      </div>
                   </form>
-                  <a
-                     href="/"
+                  <Link
+                     to="/"
                      className="text-lg font-semibold hover:text-teal-500"
                   >
                      Home
-                  </a>
-                  <a
-                     href="/tour"
+                  </Link>
+                  <Link
+                     to="/tour"
                      className="text-lg font-semibold hover:text-teal-500"
                   >
                      All-Packages
-                  </a>
-                  <a
-                     href="/about"
+                  </Link>
+                  <Link
+                     to="/about"
                      className="text-lg font-semibold hover:text-teal-500"
                   >
                      About-Us
-                  </a>
+                  </Link>
 
                   {userInfo ? (
                      <>
-                        <a
+                        <Link
                            onClick={logOut}
                            className="text-lg font-semibold cursor-pointer CUR hover:text-teal-500"
                         >
                            LogOut
-                        </a>
+                        </Link>
                         {userInfo.role === "admin" && (
-                           <a
-                              href="/admin"
+                           <Link
+                              to="/admin"
                               className="text-lg font-semibold hover:text-teal-500"
                            >
                               <img
@@ -104,16 +104,16 @@ const Navbar = () => {
                                  src="https://static.vecteezy.com/system/resources/previews/020/429/953/original/admin-icon-vector.jpg"
                                  alt="Admin"
                               />
-                           </a>
+                           </Link>
                         )}
                      </>
                   ) : (
-                     <a
-                        href="/login"
+                     <Link
+                        to="/login"
                         className="text-lg font-semibold cursor-pointer hover:text-teal-500"
                      >
                         Login
-                     </a>
+                     </Link>
                   )}
                </div>
 
@@ -144,42 +144,42 @@ const Navbar = () => {
          {isMenuOpen && (
             <div className="bg-black lg:hidden">
                {/* <div className="flex w-[80vh] h-8" ><input type="text" className="p-1 text-black rounded-lt rounded-lb"/><img className="h-8 bg-white rounded-tr rounded-br w-50 color-white" src="https://www.freeiconspng.com/uploads/search-icon-png-21.png" alt="" /></div> */}
-               <a
-                  href="/"
+               <Link
+                  to="/"
                   onClick={toggleMenu}
                   className="block px-4 py-2 hover:bg-teal-500"
                >
                   {" "}
                   Home
-               </a>
-               <a
-                  href="#"
+               </Link>
+               <Link
+                  to="#"
                   onClick={toggleMenu}
                   className="block px-4 py-2 hover:bg-teal-500"
                >
                   {" "}
                   All Package
-               </a>
-               <a
-                  href="/about"
+               </Link>
+               <Link
+                  to="/about"
                   onClick={toggleMenu}
                   className="block px-4 py-2 cursor-pointer hover:bg-teal-500"
                >
                   {" "}
                   About Us
-               </a>
+               </Link>
 
                {userInfo ? (
                   <>
-                     <a
+                     <Link
                         onClick={logOut}
                         className="block px-4 py-2 cursor-pointer hover:bg-teal-500"
                      >
                         LogOut
-                     </a>
+                     </Link>
                      {userInfo.role === "admin" && (
-                        <a
-                           href="/admin"
+                        <Link
+                           to="/admin"
                            className="block px-4 py-2 hover:bg-teal-500"
                         >
                            <img
@@ -187,16 +187,16 @@ const Navbar = () => {
                               src="https://static.vecteezy.com/system/resources/previews/020/429/953/original/admin-icon-vector.jpg"
                               alt="Admin"
                            />
-                        </a>
+                        </Link>
                      )}
                   </>
                ) : (
-                  <a
-                     href="/login"
+                  <Link
+                     to="/login"
                      className="text-lg font-semibold cursor-pointer hover:text-teal-500"
                   >
                      Login
-                  </a>
+                  </Link>
                )}
 
                <form
