@@ -46,7 +46,11 @@ const SearchPage = () => {
         Search Results for: <span className="text-teal-500">{query}</span>
       </h1>
       {loading ? (
-        <p>Loading...</p>
+      
+         <div className="flex items-center justify-center min-h-screen">
+            <div className="w-16 h-16 border-4 border-gray-300 border-t-teal-600 rounded-full animate-spin"></div>
+         </div>
+      
       ) : results.length > 0 ? (
         <div className="md:text-center w-[40%] m-auto">
           {results.map((result) => (
